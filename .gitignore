@@ -10,3 +10,6 @@
 log/
 target/
 /.project
+.project
+.classpath
+*.prefs

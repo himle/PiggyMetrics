@@ -1,0 +1,40 @@
+* note1
+- set up the pre environments 
+#+BEGIN_SRC bash
+export CONFIG_SERVICE_PASSWORD=root
+export NOTIFICATION_SERVICE_PASSWORD=root
+export STATISTICS_SERVICE_PASSWORD=root
+export ACCOUNT_SERVICE_PASSWORD=root
+export MONGODB_PASSWORD=root         ## MUST
+#+END_SRC
+
+#+BEGIN_SRC bash -n
+docker run --name rabbitmq -p 5672:5672 rabbitmq
+
+docker run  -p 25000:27017 --env 'MONGODB_PASSWORD=921000000000129' --name auth-mongo mongo-service
+docker run  -p 26000:27017 --env 'MONGODB_PASSWORD=921000000000129' --name account-mongo mongo-service
+docker run  -p 27000:27017 --env 'MONGODB_PASSWORD=921000000000129' --name statistics-mongo mongo-service
+docker run  -p 28000:27017 --env 'MONGODB_PASSWORD=921000000000129' --name notification-mongo mongo-service
+#+END_SRC
+
+#+BEGIN_SRC bash
+  set the host of config , rabbitmq, account-mongodb,auth-mongodb,notification-mongodb,statistics-mongodb,registry,auth-service,account-service ...
+#+END_SRC
+
+** run a service rabbitmq
+** the rabbitmq default port is 5672
+** run a service config by java -jar config.jar
+** the default port is 8888
+** run a service registry  by java -jar registry.jar
+** the default port is 8761 (eurka server)
+** run a service auth-mongo-service by docker run mongo-service
+** the port can be set to 25000
+** run a service auth-service by java -jar auth-service.jar
+** run a service account-service by java -jar account-service.jar
+** run a service gateway by java -jar gateway.jar 
+** run a service notification
+** run a service monitoring
+** run a service statistics
+
+## 注册貌似是可以的，不过后面的获取token 是失败的，有待进一步测试
+
