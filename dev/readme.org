@@ -17,24 +17,37 @@ docker run  -p 27000:27017 --env 'MONGODB_PASSWORD=921000000000129' --name stati
 docker run  -p 28000:27017 --env 'MONGODB_PASSWORD=921000000000129' --name notification-mongo mongo-service
 #+END_SRC
 
-#+BEGIN_SRC bash
+#+BEGIN_SRC bash -w 80
   set the host of config , rabbitmq, account-mongodb,auth-mongodb,notification-mongodb,statistics-mongodb,registry,auth-service,account-service ...
 #+END_SRC
 
-** run a service rabbitmq
-** the rabbitmq default port is 5672
-** run a service config by java -jar config.jar
-** the default port is 8888
-** run a service registry  by java -jar registry.jar
-** the default port is 8761 (eurka server)
-** run a service auth-mongo-service by docker run mongo-service
-** the port can be set to 25000
-** run a service auth-service by java -jar auth-service.jar
-** run a service account-service by java -jar account-service.jar
-** run a service gateway by java -jar gateway.jar 
-** run a service notification
-** run a service monitoring
-** run a service statistics
+#+BEGIN_SRC 
+  ## host file add
+127.0.0.1     config
+127.0.0.1     auth-service
+127.0.0.1     registry
+127.0.0.1     gateway
+10.88.3.56    rabbitmq
+10.88.3.56    account-mongodb
+10.88.3.56    auth-mongodb
+10.88.3.56    statistics-mongodb
+10.88.3.56    notification-mongodb
 
-## 注册貌似是可以的，不过后面的获取token 是失败的，有待进一步测试
+#+END_SRC
+- ** run a service rabbitmq
+- ** the rabbitmq default port is 5672
+- ** run a service config by java -jar config.jar
+- ** the default port is 8888
+- ** run a service registry  by java -jar registry.jar
+- ** the default port is 8761 (eurka server)
+- ** run a service auth-mongo-service by docker run mongo-service
+- ** the port can be set to 25000
+- ** run a service auth-service by java -jar auth-service.jar
+- ** run a service account-service by java -jar account-service.jar
+- ** run a service gateway by java -jar gateway.jar 
+- ** run a service notification
+- ** run a service monitoring
+- ** run a service statistics
+ 
+** 注册貌似是可以的，不过后面的获取token 是失败的，有待进一步测试
 
