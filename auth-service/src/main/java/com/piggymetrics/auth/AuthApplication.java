@@ -90,7 +90,7 @@ public class AuthApplication {
 			clients.inMemory()
 					.withClient("browser")
 //					.secret("000000")
-					.authorizedGrantTypes("refresh_token", "password")
+					.authorizedGrantTypes( "password","refresh_token")
 					.scopes("ui")
 			.and()
 					.withClient("account-service")
