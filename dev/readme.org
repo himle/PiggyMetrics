@@ -25,6 +25,9 @@ docker run  -p 28000:27017 --env 'MONGODB_PASSWORD=921000000000129' --name notif
   ## host file add
 127.0.0.1     config
 127.0.0.1     auth-service
+127.0.0.1     account-service
+127.0.0.1     statistics-service
+127.0.0.1     notification-service
 127.0.0.1     registry
 127.0.0.1     gateway
 10.88.3.56    rabbitmq
@@ -51,3 +54,5 @@ docker run  -p 28000:27017 --env 'MONGODB_PASSWORD=921000000000129' --name notif
  
 ** 注册貌似是可以的，不过后面的获取token 是失败的，有待进一步测试
 
+
+http://10.168.1.49:8888/account-service.yml

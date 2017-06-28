@@ -89,6 +89,7 @@ public class AuthApplication {
 			// @formatter:off
 			clients.inMemory()
 					.withClient("browser")
+//					.secret("000000")
 					.authorizedGrantTypes("refresh_token", "password")
 					.scopes("ui")
 			.and()

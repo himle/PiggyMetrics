@@ -1,5 +1,7 @@
 logging:
+  path: ./ 
   level:
+    root: DEBUG
     org.springframework.security: INFO
 
 hystrix:

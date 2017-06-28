@@ -1,0 +1,1 @@
+ keytool -genkey -alias auth-service -keyalg RSA -keystore auth.keystore           -validity 3650 -storetype JKS           -dname "CN=auth-service, OU=Spring, O=Pivotal, L=smile921, ST=HI, C=US"          -keypass 921129 -storepass 921129
